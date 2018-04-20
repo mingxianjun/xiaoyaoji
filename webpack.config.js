@@ -8,25 +8,40 @@ const ExtractPlugin = require('extract-text-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
+function resolve (dir) {
+    return path.join(__dirname, dir)
+}
+
 const config = {
     target: 'web',
-    entry: path.join(__dirname, 'src/main.js'),   // 输入：项目主文件（入口文件）
-    output: {       // 输出
-        filename: 'build.[hash:8].js',  // 输出的文件名
-        path: path.join(__dirname, 'dist')  // 输出路径
+    entry: path.join(__dirname, 'src/main.js'),
+    output: {
+        filename: 'build.[hash:8].js',
+        path: path.join(__dirname, 'dist')
     },
-    module: {       // 配置加载资源
-        rules: [    // 规则
+    resolve: {
+        extensions: ['.js', '.vue', '.json'],
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+            '@': resolve('src')
+        }
+    },
+    module: {
+        rules: [
             {
                 test: /\.vue$/,
                 loader: 'vue-loader'
+            },
+            {
+                test: /\.css$/,
+                use:[ 'style-loader','css-loader']
             },
             {
                 test: /\.jsx$/,
                 loader: 'babel-loader'
             },
             {
-                test: /\.(gif|jpg|jpeg|png|svg)$/,
+                test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
                 use: [
                     {
                         loader: 'url-loader',
@@ -39,14 +54,17 @@ const config = {
             }
         ]
     },
-    // webpack插件配置
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: isDev ? '"development"' : '"production"'
             }
         }),
-        new HTMLPlugin()
+        new HTMLPlugin({
+            filename: 'index.html',
+            template: 'index.html',
+            inject: true
+        })
     ]
 };
 
@@ -81,15 +99,28 @@ if (isDev) {
     config.plugins.push(
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
-    )
+    );
 } else {
-    // 生成坏境的配置
-    config.entry = {   // 将所用到的类库单独打包
-        app: path.join(__dirname, 'src/index.js'),
+    // 生产坏境的配置
+    config.entry = {
+        app: path.join(__dirname, 'src/main.js'),
         vendor: ['vue']
     };
     config.output.filename = '[name].[chunkhash:8].js';
     config.module.rules.push({
+        test: /\.styl/,
+        use: [
+            'css-loader',
+            {
+                loader: 'postcss-loader',
+                options: {
+                    sourceMap: true
+                }
+            },
+            'stylus-loader'
+        ]
+    });
+    /*config.module.rules.push({
         test: /\.styl/,
         use: ExtractPlugin.extract({
             fallback: 'style-loader',
@@ -104,20 +135,10 @@ if (isDev) {
                 'stylus-loader'
             ]
         })
-    });
-    config.plugins.push(
+    });*/
+    /*config.plugins.push(
         new ExtractPlugin('styles.[contentHash:8].css')
-
-        // // 将类库文件单独打包出来
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'vendor'
-        // })
-
-        // webpack相关的代码单独打包
-        // new webpack.optimize.CommonsChunkPlugin({
-        //     name: 'runtime'
-        // })
-    );
+    );*/
 
     config.optimization = {
         splitChunks: {

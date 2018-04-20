@@ -1,20 +1,12 @@
 <template>
-    <h1>Hello {{name}}</h1>
+    <router-view/>
 </template>
 
 <script>
 export default{
-    data(){
-        return {
-            name:'xiaojiaoji!!'
-        }
-    }
+    name:'app'
 }
 </script>
 
 <style scope>
-    h1{
-        color: green;
-        text-align: center;
-    }
 </style>
