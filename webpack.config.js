@@ -33,24 +33,36 @@ const config = {
                 loader: 'vue-loader'
             },
             {
-                test: /\.css$/,
-                use:[ 'style-loader','css-loader']
-            },
-            {
                 test: /\.jsx$/,
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                exclude: /node_modules/
             },
             {
-                test: /\.(gif|jpg|png|woff|svg|eot|ttf)\??.*$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 1024,  // 文件小于1024字节，转换成base64编码，写入文件里面
-                            name: '[name]-output.[ext]'
-                        }
-                    }
-                ]
+                test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 1000,
+                    name: 'media/[name].[hash:7].[ext]',
+                    publicPath:'../'
+                }
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 1000,
+                    name: 'fonts/[name].[hash:7].[ext]',
+                    publicPath:'../'
+                }
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader',
+                options: {
+                    limit: 1000,
+                    name: 'images/[name].[hash:7].[ext]',
+                    publicPath:'../'
+                }
             }
         ]
     },
@@ -71,7 +83,14 @@ const config = {
 if (isDev) {
     // 开发坏境的配置
     config.module.rules.push({
-        test: /\.styl/,
+        test: /\.css$/,
+        use: [
+            'style-loader',
+            'css-loader'
+        ]
+    });
+    config.module.rules.push({
+        test: /\.styl$/,
         use: [
             'style-loader',
             'css-loader',
@@ -108,20 +127,16 @@ if (isDev) {
     };
     config.output.filename = '[name].[chunkhash:8].js';
     config.module.rules.push({
-        test: /\.styl/,
-        use: [
-            'css-loader',
-            {
-                loader: 'postcss-loader',
-                options: {
-                    sourceMap: true
-                }
-            },
-            'stylus-loader'
-        ]
+        test: /\.css$/,
+        use: ExtractPlugin.extract({
+            fallback: 'style-loader',
+            use: [
+                'css-loader'
+            ]
+        })
     });
-    /*config.module.rules.push({
-        test: /\.styl/,
+    config.module.rules.push({
+        test: /\.styl$/,
         use: ExtractPlugin.extract({
             fallback: 'style-loader',
             use: [
@@ -135,10 +150,10 @@ if (isDev) {
                 'stylus-loader'
             ]
         })
-    });*/
-    /*config.plugins.push(
-        new ExtractPlugin('styles.[contentHash:8].css')
-    );*/
+    });
+    config.plugins.push(
+        new ExtractPlugin('style/[name].[hash:8].css')
+    );
 
     config.optimization = {
         splitChunks: {
