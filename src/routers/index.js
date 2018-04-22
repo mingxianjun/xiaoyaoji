@@ -15,6 +15,10 @@ export default new Router({
             component: home
         },
         {
+            path: '/',
+            redirect: '/home'
+        },
+        {
             path: '*',
             name: 'notFound',
             component: notFound

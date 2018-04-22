@@ -69,6 +69,12 @@
 </template>
 <script>
     export default {
+        name:'home',
+        created(){
+            /*this.$http.get('/base/api')
+                    .then((res)=>{
 
+                    })*/
+        }
     }
 </script>
