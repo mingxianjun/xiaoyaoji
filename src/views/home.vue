@@ -1,15 +1,15 @@
 <style scoped>
     .layout{
-        border: 1px solid #d7dde4;
+        min-height: 100%;
         background: #f5f7f9;
         position: relative;
-        border-radius: 4px;
         overflow: hidden;
     }
     .layout-logo{
         width: 100px;
         height: 30px;
-        background: #5b6270;
+        background: url("../assets/image/logo.png") no-repeat center center;
+        background-size: 100%;
         border-radius: 3px;
         float: left;
         position: relative;
@@ -33,8 +33,8 @@
                     <div class="layout-logo"></div>
                     <div class="layout-nav">
                         <MenuItem name="1">
-                            <Icon type="ios-navigate"></Icon>
-                            Item 1
+                            <Icon type="home"></Icon>
+                            <router-link to="/home">主页</router-link>
                         </MenuItem>
                         <MenuItem name="2">
                             <Icon type="ios-keypad"></Icon>
@@ -63,18 +63,27 @@
                     </div>
                 </Card>
             </Content>
-            <Footer class="layout-footer-center">2011-2016 &copy; TalkingData</Footer>
+            <Footer class="layout-footer-center">
+                <router-link to="/home">首页</router-link>|
+                <router-link to="/help">github</router-link>|
+                <router-link to="/home">在线帮助</router-link>|
+                <span>小幺鸡©2016</span>
+                <router-link to="/home">蜀ICP备16012366号</router-link>
+            </Footer>
         </Layout>
     </div>
 </template>
 <script>
+    import util from '@/components/utils';
+
     export default {
         name:'home',
         created(){
-            this.$http.get('/api/user2',null)
-                .then((res)=>{
-                    console.log(res.data);
-                })
+            this.$Loading.start();
+            util.http('get','/api/user',null,(res)=>{
+                this.$Loading.finish();
+                console.log(res);
+            });
         }
     }
 </script>

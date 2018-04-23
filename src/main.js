@@ -17,3 +17,12 @@ new Vue({
     router,
     render:(h)=>h(App)
 });
+
+router.beforeEach((to, from, next) => {
+    iView.LoadingBar.start();
+    next();
+});
+
+router.afterEach(route => {
+    iView.LoadingBar.finish();
+});
