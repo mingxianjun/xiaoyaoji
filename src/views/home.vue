@@ -71,10 +71,10 @@
     export default {
         name:'home',
         created(){
-            /*this.$http.get('/base/api')
-                    .then((res)=>{
-
-                    })*/
+            this.$http.get('/api/user2',null)
+                .then((res)=>{
+                    console.log(res.data);
+                })
         }
     }
 </script>

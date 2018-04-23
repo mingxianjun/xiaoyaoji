@@ -7,6 +7,7 @@ import vueResource from 'vue-resource';
 import './assets/styles/base.styl';
 import 'iview/dist/styles/iview.css';//iview style
 import iView from 'iview';
+import "../mock";
 
 Vue.use(vueResource);
 Vue.use(iView);
