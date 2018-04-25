@@ -1,6 +1,6 @@
 import Mock from 'mockjs';
 
-const user = Mock.mock(
+Mock.mock(
     '/api/user','get', () =>{
         return  {
             code:200,
@@ -16,4 +16,4 @@ const user = Mock.mock(
         }
     } );
 
-export default { user }
+export default { }

@@ -1,27 +1,22 @@
 <template>
     <Header>
-        <Menu mode="horizontal" theme="dark" active-name="1">
+        <Menu mode="horizontal" theme="primary" active-name="/home" @on-select="jumpTo">
             <div class="layout-logo"></div>
             <div class="layout-nav">
-                <MenuItem name="1">
-                    <Icon type="home"></Icon>
-                    <router-link to="/home">主页</router-link>
+                <MenuItem name="/home">
+                    <Icon type="home"></Icon>主页
                 </MenuItem>
-                <MenuItem name="2">
-                    <Icon type="network"></Icon>
-                    <router-link to="/home">在线预览</router-link>
+                <MenuItem name="/demo">
+                    <Icon type="network"></Icon>在线预览
                 </MenuItem>
-                <MenuItem name="3">
-                    <Icon type="help-buoy"></Icon>
-                    <router-link to="/home">捐赠支持</router-link>
+                <MenuItem name="/donation">
+                    <Icon type="help-buoy"></Icon>捐赠支持
                 </MenuItem>
-                <MenuItem name="4">
-                    <Icon type="code-download"></Icon>
-                    <router-link to="/home">下载源码</router-link>
+                <MenuItem name="/download">
+                    <Icon type="code-download"></Icon>下载源码
                 </MenuItem>
-                <MenuItem name="5">
-                    <Icon type="ios-help-outline"></Icon>
-                    <router-link to="/home">帮助&说明</router-link>
+                <MenuItem name="/help">
+                    <Icon type="ios-help-outline"></Icon>帮助&说明
                 </MenuItem>
             </div>
         </Menu>
@@ -30,14 +25,22 @@
 
 <script>
     export default {
-
+        methods:{
+            jumpTo(path){
+                this.$router.push(path);
+            }
+        }
     }
 </script>
 <style scoped>
+    .ivu-layout-header{
+        height: 60px;
+        background: #2d8cf0;
+    }
     .layout-logo {
         width: 100px;
         height: 30px;
-        background: url("../../assets/image/logo.png") no-repeat center center;
+        background: url("../../assets/image/icon/logo.png") no-repeat center center;
         background-size: 100%;
         border-radius: 3px;
         float: left;
@@ -45,12 +48,8 @@
         top: 15px;
         left: 20px;
     }
-
     .layout-nav {
         float: right;
     }
     .ivu-menu-item{font-size: 1rem;}
-    .ivu-menu-item a{color: rgba(255,255,255,.6)}
-    .ivu-menu-item:hover a{color: rgba(255,255,255,.8)}
-    .ivu-menu-item-active a{color: rgba(255,255,255,1)!important;font-weight: bold;}
 </style>
