@@ -39,9 +39,9 @@
         top: 0;
         width: 100%;
         height: 60px;
-        background: rgba(0,0,0,.2);
+        background: rgba(0,0,0,.5);
         background-size: 100% 200px;
-        box-shadow: 0 0 5px rgba(0,0,0,.6);
+        box-shadow: 0 0 5px rgba(0,0,0,.8);
     }
     .ivu-layout-header ul{
         width: 1200px;
@@ -64,4 +64,7 @@
         float: right;
     }
     .ivu-menu-item{font-size: 1rem;}
+    .ivu-menu-item:hover{
+        border-bottom: 2px solid rgba(255,255,255,.3);
+    }
 </style>
