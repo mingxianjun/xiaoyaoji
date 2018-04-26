@@ -1,7 +1,7 @@
 <template>
     <Header>
-        <Menu mode="horizontal" theme="primary" active-name="/home" @on-select="jumpTo">
-            <div class="layout-logo"></div>
+        <Menu theme="dark" mode="horizontal" active-name="/home" @on-select="jumpTo">
+            <div class="layout-logo" @click="jumpTo('/home')"><img src="../../assets/image/icon/logo-icon.png" width="36"/></div>
             <div class="layout-nav">
                 <MenuItem name="/home">
                     <Icon type="home"></Icon>主页
@@ -34,19 +34,31 @@
 </script>
 <style scoped>
     .ivu-layout-header{
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
         height: 60px;
-        background: #2d8cf0;
+        background: rgba(0,0,0,.2);
+        background-size: 100% 200px;
+        box-shadow: 0 0 5px rgba(0,0,0,.6);
+    }
+    .ivu-layout-header ul{
+        width: 1200px;
+        margin: 0 auto;
+        background: transparent;
     }
     .layout-logo {
-        width: 100px;
-        height: 30px;
-        background: url("../../assets/image/icon/logo.png") no-repeat center center;
-        background-size: 100%;
-        border-radius: 3px;
         float: left;
         position: relative;
-        top: 15px;
-        left: 20px;
+        padding-left: 70px;
+        margin-top: 15px;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        background: url("../../assets/image/icon/logo-white.png") no-repeat 0 center;
+        background-size: 60px;
+        cursor: pointer;
     }
     .layout-nav {
         float: right;

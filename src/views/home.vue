@@ -5,15 +5,15 @@
         overflow: hidden;
     }
     .banner{
-        height: 480px;
-        padding: 180px 0;
+        height: 450px;
+        padding: 160px 0;
         background: url("../assets/image/home-banner.png") no-repeat center center;
         background-size:cover;
         text-align: center;
         color: #fff;
     }
-    .banner h1{font-weight: normal;font-size: 2rem;}
-    .bg-btn{padding: 8px 4rem;margin-top: 2rem;color: #fff;border-radius: 0;letter-spacing: 2px;transition: background 500ms linear;}
+    .banner h1{margin-top: 1rem;font-weight: normal;font-size: 2rem;}
+    .bg-btn{padding: 8px 4rem;margin-top: 2rem;font-size: 1rem;color: #fff;border-radius: 0;letter-spacing: 2px;transition: background 1s linear;}
     .bg-btn:hover{color: #fff;background: #fff;color: #666;border: 1px solid #fff;}
 </style>
 <template>

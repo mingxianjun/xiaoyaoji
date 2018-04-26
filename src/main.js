@@ -4,8 +4,8 @@ import App from './app.vue';
 import router from './routers';
 import vueResource from 'vue-resource';
 
+import 'iview/dist/styles/iview.css';
 import './assets/styles/base.styl';
-import 'iview/dist/styles/iview.css';//iview style
 import iView from 'iview';
 import "../mock";
 
