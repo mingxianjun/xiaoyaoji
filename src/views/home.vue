@@ -1,33 +1,3 @@
-<style scoped>
-    .ivu-layout {
-        position: relative;
-        min-height: 100%;
-        overflow: hidden;
-    }
-    .banner{
-        height: 450px;
-        padding: 160px 0;
-        background: url("../assets/image/home-banner2.jpg") no-repeat center center;
-        background-size:cover;
-        text-align: center;
-        color: #fff;
-    }
-    .banner h1{margin-top: 1rem;font-weight: normal;font-size: 2rem;}
-    .btn{padding: 8px 6rem;margin-top: 2rem;font-size: 1rem;border-radius: 0;letter-spacing: 2px;transition: all 1s linear;}
-    .bg-btn{color: #fff;}
-    .bg-btn:hover{color: #fff;background: #fff;color: #666;border: 1px solid #fff;}
-    .ivu-card-head p{font-size: 1.2rem;font-weight: normal;}
-    .ivu-card-body p{line-height: 18px;margin-top: 5px;}
-    .ivu-card-body p i{line-height: 18px;}
-
-    .spe-card{background: transparent;text-align: center;}
-    .spe-card .ivu-card-body p{margin-top: 1.5rem;}
-    .spe-card .ivu-card-body p i{margin-right: 10px;}
-    .spe-card .ivu-card-body .btn{
-        margin-top: 4rem;
-
-    }
-</style>
 <template>
     <Layout id="home">
         <topNavBar/>
@@ -37,6 +7,7 @@
                 <h1>小幺鸡，简单好用的在线接口文档管理工具</h1>
                 <Button type="ghost" class="btn bg-btn">立即使用</Button>
             </section>
+
             <section class="white" style="padding: 2rem 0">
                 <div class="wrapper">
                     <Row :gutter="16">
@@ -74,12 +45,37 @@
                     <Card dis-hover :bordered="false" class="spe-card">
                         <p slot="title">如果你喜欢下面这些，那你一定会喜欢上“小幺鸡”</p>
                         <p><Icon type="checkmark"></Icon>接口在线测试，降低接口错误率</p>
-                        <p><Icon type="checkmark"></Icon>>开放源码，支持任意修改</p>
+                        <p><Icon type="checkmark"></Icon>开放源码，支持任意修改</p>
                         <p><Icon type="checkmark"></Icon>简洁明了的API</p>
                         <p><Icon type="checkmark"></Icon>简单的维护更新</p>
                         <p><Icon type="checkmark"></Icon>多种导出满足不同需求</p>
                         <Button type="ghost" class="btn">立即使用</Button>
                     </Card>
+                </div>
+            </section>
+
+            <section style="padding: 3rem;background: #0f6ecd;">
+                <div class="contact-box">
+                    <Row :gutter="16">
+                        <Col span="8">
+                            <Card dis-hover :bordered="false" style="background: transparent;">
+                                <img src="@/assets/image/icon/qq.png" width="80" height="60"/>
+                                <p><span>qq群：</span><a href="//shang.qq.com/wpa/qunwpa?idkey=3ef7d12c9bd722026c6a61318335246216421cd6a6851b0e8e3916dac297b3e7">336075459</a></p>
+                            </Card>
+                        </Col>
+                        <Col span="8">
+                            <Card dis-hover :bordered="false" style="background: transparent;">
+                                <img src="@/assets/image/icon/sina-blog.png" width="80" height="60"/>
+                                <p><a href="http://weibo.com/2727734575" target="_blank">iAm凉粉</a></p>
+                            </Card>
+                        </Col>
+                        <Col span="8">
+                            <Card dis-hover :bordered="false" style="background: transparent;">
+                                <img src="@/assets/image/icon/email.png" width="80" height="60"/>
+                                <p><a href="mailto:xiaoyaoji@zhoujingjie.cn">xiaoyaoji@zhoujingjie.cn</a></p>
+                            </Card>
+                        </Col>
+                    </Row>
                 </div>
             </section>
         </Content>
@@ -89,8 +85,9 @@
 </template>
 <script>
     import util from '@/components/utils';
-    import topNavBar from './common/topNavBar.vue';
-    import bottomNavBar from './common/bottomNavBar.vue';
+    import topNavBar from '@/views/common/topNavBar.vue';
+    import bottomNavBar from '@/views/common/bottomNavBar.vue';
+    import '@/assets/styles/home.styl'
 
     export default {
         name: 'home',
