@@ -16,7 +16,7 @@ const utils = {
                 if(res.status == '404')
                     location.href = '#/404';
                 else
-                    location.href = '#/500';
+                    location.href = '#/error';
             });
     }
 };

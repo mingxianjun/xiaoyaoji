@@ -84,20 +84,12 @@
     </Layout>
 </template>
 <script>
-    import util from '@/components/utils';
     import topNavBar from '@/views/common/topNavBar.vue';
     import bottomNavBar from '@/views/common/bottomNavBar.vue';
     import '@/assets/styles/home.styl'
 
     export default {
         name: 'home',
-        components:{topNavBar,bottomNavBar},
-        created(){
-            this.$Loading.start();
-            util.http('get', '/api/user', null, (res)=> {
-                this.$Loading.finish();
-                console.log(res);
-            });
-        }
+        components:{topNavBar,bottomNavBar}
     }
 </script>

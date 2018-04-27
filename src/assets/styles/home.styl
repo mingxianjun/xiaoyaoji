@@ -3,7 +3,7 @@
   min-height 100%
   overflow hidden
 
-#home .ivu-layout-header{
+#home .ivu-layout-header
   position fixed
   left 0
   top 0
@@ -13,15 +13,13 @@
   background rgba(0,0,0,.5)
   background-size 100% 200px
   box-shadow 0 0 5px rgba(0,0,0,.8)
-}
-#home .ivu-layout-header ul{
+#home .ivu-layout-header .ivu-menu
   width 1200px
   margin 0 auto
   background transparent
-}
-#home .layout-logo {
+
+#home .layout-logo 
   float left
-  position relative
   padding-left 70px
   margin-top 15px
   width 100px
@@ -30,14 +28,23 @@
   background url("../image/icon/logo-white.png") no-repeat 0 center
   background-size 60px
   cursor pointer
-}
-#home .layout-nav {
+
+#home .layout-nav
   float right
-}
+
 #home .ivu-menu-item
   font-size 1rem
 #home .ivu-menu-item:hover
   border-bottom 2px solid rgba(255,255,255,.3)
+#home .ivu-select-dropdown
+  background rgba(0,0,0,.5)
+#home .ivu-menu-item-group-title
+  display none
+#home .ivu-select-dropdown  .ivu-menu-item
+  color #fff
+#home .ivu-select-dropdown  .ivu-menu-item:hover
+  background rgba(0,0,0,.5)
+  border-bottom none
 
   
 #home .banner

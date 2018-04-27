@@ -2,17 +2,32 @@ import Mock from 'mockjs';
 
 Mock.mock(
     '/api/user','get', () =>{
+        let user;
+        try {
+            user = JSON.parse(localStorage.getItem('loginUser'))
+        }catch (e){
+            user = {};
+        }
         return  {
-            code:200,
-            data:{
-                id:201801,
-                sex:1,
-                age:25,
-                name:'lemon',
-                role:'manage',
-                createTime:'2017-04-01'
-            },
-            message:'查询成功'
+            success:true,
+            data:user
+        }
+    } );
+
+Mock.mock(
+    '/api/login','post', (res,req) =>{
+        console.log(res);
+        console.log(req);
+        return  {
+            success:true
+        }
+    } );
+
+Mock.mock(
+    '/api/logout','get', () =>{
+        localStorage.removeItem('loginUser');
+        return  {
+            success:true
         }
     } );
 
