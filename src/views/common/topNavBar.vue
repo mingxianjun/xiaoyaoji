@@ -50,7 +50,7 @@
         },
         created(){
             this.$Loading.start();
-            util.http('get', '/api/user', null, res=> {
+            util.sendGet('/api/user', null, res=> {
                 this.$Loading.finish();
                 this.loginUser = res.data || {};
             });
@@ -58,7 +58,7 @@
         methods:{
             jumpTo(path){
                 if(path == '/logout'){
-                    util.http('get', '/api/logout',null,res=>{
+                    util.sendGet('/api/logout',null,res=>{
                         if(res.success){
                             this.$router.push('/home');
                             location.reload();

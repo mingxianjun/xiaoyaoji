@@ -1,23 +1,31 @@
 import Vue from 'vue';
 
 const utils = {
-    http(method,url,param,call){
-        Vue.http({
-            method:method,
-            url:url,
-            data:param,
-            headers: {'Content-Type': 'application/json; charset=UTF-8'},
-            emulateJSON: true
-        }).then(
-            (res)=>{
+    sendPost(url,param,call){
+       Vue.http.post(url,param).then(
+           res => {
+               call && typeof call == 'function' && call(res.data);
+           },
+           res => {
+               if(res.status == '404')
+                   location.href = '#/404';
+               else
+                   location.href = '#/error';
+           },
+       )
+    },
+    sendGet(url,param,call){
+        Vue.http.get(url,{params:param}).then(
+            res => {
                 call && typeof call == 'function' && call(res.data);
             },
-            (res)=>{
+            res => {
                 if(res.status == '404')
                     location.href = '#/404';
                 else
                     location.href = '#/error';
-            });
+            },
+        )
     }
 };
 
