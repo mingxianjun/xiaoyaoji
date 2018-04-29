@@ -1,7 +1,7 @@
 <template>
     <div class="login-box" id="loginBox">
         <router-link to="/home" class="logo"></router-link>
-        <Form  ref="user" :model="user" :rules="ruleValidate">
+        <Form ref="user" :model="user" :rules="ruleValidate">
             <FormItem prop="email">
                 <Input type="text" size="large" v-model="user.email" placeholder="邮箱">
                 <Icon size="18" type="ios-person-outline" slot="prepend"></Icon>
@@ -42,11 +42,11 @@
                 user:{email:'',password:''},
                 ruleValidate:{
                     email: [
-                        { required: true, message: '邮箱不能为空', trigger: 'blur' },
+                        { required: true, message: '请输入邮箱', trigger: 'blur' },
                         { type: 'email', message: '邮箱的格式不正确', trigger: 'blur' }
                     ],
                     password: [
-                        { required: true, message: '密码不能为空', trigger: 'blur' },
+                        { required: true, message: '请输入密码', trigger: 'blur' },
                         { type: 'string', min: 6, message: '密码至少为6位字符', trigger: 'blur' }
                     ]
                 }

@@ -3,6 +3,7 @@ import Router from 'vue-router';
 
 import home from '@/views/home';
 import login from '@/views/login';
+import register from '@/views/register';
 import notFound from '@/views/common/notFound';
 
 
@@ -19,6 +20,11 @@ export default new Router({
             path: '/login',
             name: 'login',
             component: login
+        },
+        {
+            path: '/register',
+            name: 'register',
+            component: register
         },
         {
             path: '/',

@@ -42,6 +42,35 @@ Mock.mock(
     } );
 
 Mock.mock(
+    '/api/register','post', req =>{
+        let isOk = false,msg = '';
+        try{
+            let cu_user = JSON.parse(req.body);
+            let register_users = localStorage.getItem('registerUser');
+            if(register_users){
+                let userList = JSON.parse(register_users);
+                if(userList[cu_user.email]){
+                    msg = '该邮箱已经注册过！';
+                }else{
+                    isOk = true;
+                    userList[cu_user.email] = cu_user.password;
+                }
+            }else {
+                isOk = true;
+                userList[cu_user.email] = cu_user.password;
+            }
+        }catch (e){
+            msg = '注册失败！';
+        }
+
+        localStorage.removeItem('loginUser');
+        return  {
+            success:isOk,
+            msg:msg
+        }
+    } );
+
+Mock.mock(
     '/api/logout','get', () =>{
         localStorage.removeItem('loginUser');
         return  {
