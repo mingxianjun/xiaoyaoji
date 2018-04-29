@@ -54,10 +54,13 @@ Mock.mock(
                 }else{
                     isOk = true;
                     userList[cu_user.email] = cu_user.password;
+                    localStorage.setItem('registerUser',JSON.stringify(userList));
                 }
             }else {
                 isOk = true;
-                userList[cu_user.email] = cu_user.password;
+                let _user = {};
+                _user[cu_user.email] = cu_user.password;
+                localStorage.setItem('registerUser',JSON.stringify(_user));
             }
         }catch (e){
             msg = '注册失败！';

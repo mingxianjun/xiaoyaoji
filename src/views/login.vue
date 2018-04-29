@@ -53,15 +53,17 @@
             }
         },
         methods:{
-            submit(user) {
-                this.$refs[user].validate( valid => {
+            submit(name) {
+                this.$refs[name].validate( valid => {
                     if (valid) {
-                        util.sendPost('/api/login',{email:this.user.email,password:this.user.password},res => {
+                        let user = {email:this.user.email,password:this.user.password};
+                        util.sendPost('/api/login',user,res => {
                             if(res.success){
-
+                                localStorage.setItem('loginUser',JSON.stringify(user));
+                                this.$router.push('/home');
                             }else {
                                 this.$Message.error(res.msg);
-                                this.reset(user)
+                                this.reset(name)
                             }
                         });
                     }

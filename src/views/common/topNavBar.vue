@@ -18,20 +18,20 @@
                 <MenuItem name="/help">
                     <Icon type="ios-help-outline"></Icon>帮助&说明
                 </MenuItem>
-                <Submenu name="user" v-if="loginUser.name">
+                <Submenu name="user" v-if="loginUser.email">
                     <template slot="title">
-                        <Icon type="person"></Icon><span>{{loginUser.name.length>10?(loginUser.name.substring(0,10)+'..'):loginUser.name}}</span>
+                        <Icon type="person"></Icon><span>{{loginUser.email.length>10?(loginUser.email.substring(0,10)+'..'):loginUser.email}}</span>
                     </template>
-                    <MenuGroup :title="loginUser.name">
+                    <MenuGroup :title="loginUser.email">
                         <MenuItem name="/profile"><Icon type="person"></Icon>个人中心</MenuItem>
                         <MenuItem name="/dashboard"><Icon type="ios-speedometer"></Icon>控制台</MenuItem>
                         <MenuItem name="/logout"><Icon type="log-out"></Icon>退出登录</MenuItem>
                     </MenuGroup>
                 </Submenu>
-                <MenuItem name="/login" v-if="!loginUser.name">
+                <MenuItem name="/login" v-if="!loginUser.email">
                     <Icon type="log-in"></Icon>登录
                 </MenuItem>
-                <MenuItem name="/register" v-if="!loginUser.name">
+                <MenuItem name="/register" v-if="!loginUser.email">
                     <Icon type="ios-compose-outline"></Icon>注册
                 </MenuItem>
             </div>
@@ -49,9 +49,7 @@
             }
         },
         created(){
-            this.$Loading.start();
-            util.sendGet('/api/user', null, res=> {
-                this.$Loading.finish();
+            util.sendGet('/api/user', null, res => {
                 this.loginUser = res.data || {};
             });
         },

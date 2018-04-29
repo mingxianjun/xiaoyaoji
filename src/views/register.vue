@@ -58,6 +58,8 @@
                         util.sendPost('/api/register',user,res => {
                             if(res.success){
                                 this.$Message.success('注册成功！');
+                                //将用户名保存 并调回首页
+                                localStorage.setItem('loginUser',JSON.stringify(user));
                             }else {
                                 this.$Message.error(res.msg);
                                 this.reset(name);
