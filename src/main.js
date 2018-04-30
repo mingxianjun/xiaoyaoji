@@ -12,7 +12,7 @@ import "../mock";
 Vue.use(vueResource);
 Vue.use(iView);
 
-window.xiaoyaojiApp = new Vue({
+new Vue({
     el: '#app',
     router,
     render:(h)=>h(App)

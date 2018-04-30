@@ -4,6 +4,7 @@ import Router from 'vue-router';
 import home from '@/views/home';
 import login from '@/views/login';
 import register from '@/views/register';
+import forget from '@/views/forget';
 import notFound from '@/views/common/notFound';
 
 
@@ -25,6 +26,11 @@ export default new Router({
             path: '/register',
             name: 'register',
             component: register
+        },
+        {
+            path: '/forget',
+            name: 'forget',
+            component: forget
         },
         {
             path: '/',
