@@ -5,6 +5,7 @@ import home from '@/views/home';
 import login from '@/views/login';
 import register from '@/views/register';
 import forget from '@/views/forget';
+import donation from '@/views/donation';
 import notFound from '@/views/common/notFound';
 
 
@@ -31,6 +32,11 @@ export default new Router({
             path: '/forget',
             name: 'forget',
             component: forget
+        },
+        {
+            path: '/donation',
+            name: 'donation',
+            component: donation
         },
         {
             path: '/',

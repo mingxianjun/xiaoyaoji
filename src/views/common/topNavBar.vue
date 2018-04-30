@@ -6,7 +6,7 @@
                 <MenuItem name="/home">
                     <Icon type="home"></Icon>主页
                 </MenuItem>
-                <MenuItem name="/demo">
+                <MenuItem name="/dashboard">
                     <Icon type="network"></Icon>在线预览
                 </MenuItem>
                 <MenuItem name="/donation">
@@ -62,6 +62,8 @@
                             location.reload();
                         }
                     });
+                }else if(path == '/download'){
+                    window.open('https://github.com/zhoujingjie/xiaoyaoji');
                 }else
                     this.$router.push(path);
             }

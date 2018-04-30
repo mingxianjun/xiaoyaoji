@@ -23,9 +23,15 @@
                 </CheckboxGroup>
             </FormItem>
             <FormItem style="text-align: center;margin-left: -1rem">
-                <div class="other-type qq" @click="thirdparty()"></div>
-                <div class="other-type blog" @click="thirdparty()"></div>
-                <div class="other-type github" @click="thirdparty()"></div>
+                <Tooltip content="使用qq登录" placement="top">
+                    <div class="other-type qq" @click="thirdparty()"></div>
+                </Tooltip>
+                <Tooltip content="使用新浪微博登录" placement="top">
+                    <div class="other-type blog" @click="thirdparty()"></div>
+                </Tooltip>
+                <Tooltip content="使用github登录" placement="top">
+                    <div class="other-type github" @click="thirdparty()"></div>
+                </Tooltip>
             </FormItem>
         </Form>
     </div>
