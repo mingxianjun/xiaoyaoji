@@ -1,7 +1,7 @@
 <template>
     <Header>
         <Menu theme="dark" mode="horizontal" active-name="/home" @on-select="jumpTo">
-            <div class="layout-logo" @click="jumpTo('/home')"><img src="@/assets/image/icon/logo-icon.png" width="36"/></div>
+            <div class="layout-logo" @click="jumpTo('/home')"><img src="@/assets/images/icon/logo-icon.png" width="36"/></div>
             <div class="layout-nav">
                 <MenuItem name="/home">
                     <Icon type="home"></Icon>主页

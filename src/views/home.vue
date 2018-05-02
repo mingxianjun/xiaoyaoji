@@ -59,19 +59,19 @@
                     <Row :gutter="16">
                         <Col span="8">
                             <Card dis-hover :bordered="false" style="background: transparent;">
-                                <img src="@/assets/image/icon/qq.png" width="80" height="60"/>
+                                <img src="@/assets/images/icon/qq.png" width="80" height="60"/>
                                 <p><span>qq群：</span><a href="//shang.qq.com/wpa/qunwpa?idkey=3ef7d12c9bd722026c6a61318335246216421cd6a6851b0e8e3916dac297b3e7">336075459</a></p>
                             </Card>
                         </Col>
                         <Col span="8">
                             <Card dis-hover :bordered="false" style="background: transparent;">
-                                <img src="@/assets/image/icon/sina-blog.png" width="80" height="60"/>
+                                <img src="@/assets/images/icon/sina-blog.png" width="80" height="60"/>
                                 <p><a href="http://weibo.com/2727734575" target="_blank">iAm凉粉</a></p>
                             </Card>
                         </Col>
                         <Col span="8">
                             <Card dis-hover :bordered="false" style="background: transparent;">
-                                <img src="@/assets/image/icon/email.png" width="80" height="60"/>
+                                <img src="@/assets/images/icon/email.png" width="80" height="60"/>
                                 <p><a href="mailto:xiaoyaoji@zhoujingjie.cn">xiaoyaoji@zhoujingjie.cn</a></p>
                             </Card>
                         </Col>
