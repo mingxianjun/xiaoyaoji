@@ -9,6 +9,7 @@
                 <p>捐赠的资金基本上用于带宽升级与服务器的维持。</p>
                 <p>谢谢！</p>
             </div>
+            <div class="donation-img"></div>
         </Content>
 
         <bottomNavBar/>
