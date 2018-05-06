@@ -5,6 +5,9 @@
         <Content>
             <div class="info">
                 <p>如何解决跨域访问？</p>
+                <p>1:服务器提供JSONP支持</p>
+                <p>2:服务器提供CORS支持</p>
+                <p>3:下载由小幺鸡提供的chrome插件</p>
             </div>
         </Content>
 
