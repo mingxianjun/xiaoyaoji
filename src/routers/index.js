@@ -8,6 +8,7 @@ import forget from '@/views/forget';
 import donation from '@/views/donation';
 import help from '@/views/help';
 import notFound from '@/views/common/notFound';
+import error from '@/views/common/error';
 
 
 Vue.use(Router);
@@ -52,6 +53,12 @@ export default new Router({
             path: '*',
             name: 'notFound',
             component: notFound
+        }
+        ,
+        {
+            path: '/error',
+            name: 'error',
+            component: error
         }
     ]
 })
