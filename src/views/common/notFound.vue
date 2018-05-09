@@ -1,7 +1,7 @@
 <template>
     <div class="warp">
         <span class="title">404</span><br/>
-        <span>请求的资源未找到！</span>
+        <span>页面失踪了！</span>
         <a href="#/home">返回首页</a>
     </div>
 </template>
