@@ -18,7 +18,7 @@
         padding-top: 20%;
         text-align: center;
         color: #fff;
-        background: rgba(0, 188, 212, .5);
+        background: rgba(0, 188, 212, .55);
     }
     .warp .title{
         font-size: 100px;
