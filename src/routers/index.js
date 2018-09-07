@@ -7,6 +7,7 @@ import register from '@/views/register';
 import forget from '@/views/forget';
 import donation from '@/views/donation';
 import help from '@/views/help';
+import profile from '@/views/profile/person';
 import notFound from '@/views/common/notFound';
 import error from '@/views/common/error';
 
@@ -44,6 +45,11 @@ export default new Router({
             path: '/help',
             name: 'help',
             component: help
+        },
+        {
+            path:'/profile',
+            name:'profile',
+            component:profile
         },
         {
             path: '/',
